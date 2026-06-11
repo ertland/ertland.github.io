@@ -567,26 +567,28 @@ html,body{overflow-x:hidden!important}
   .community{scroll-margin-top:88px!important}
 }
 
-/* sticky TOC fix: earlier responsive rules changed the catalogue to relative, so it stopped following scroll */
-.toc{
-  position:sticky!important;
-  top:94px!important;
-  align-self:start!important;
-  max-height:calc(100vh - 118px)!important;
-  overflow:auto!important;
-  z-index:35!important;
-}
-@media(max-width:980px){
+/* sticky TOC fix: desktop follows scroll; mobile stays in normal flow to avoid covering article text */
+@media(min-width:981px){
   .toc{
     position:sticky!important;
-    top:72px!important;
-    max-height:42vh!important;
+    top:94px!important;
+    align-self:start!important;
+    max-height:calc(100vh - 118px)!important;
+    overflow:auto!important;
+    z-index:35!important;
   }
 }
-@media(max-width:640px){
+@media(max-width:980px){
+  .content-layout{
+    display:block!important;
+  }
   .toc{
-    top:64px!important;
-    max-height:38vh!important;
+    position:relative!important;
+    top:auto!important;
+    max-height:none!important;
+    overflow:visible!important;
+    z-index:auto!important;
+    margin:0 0 18px!important;
   }
 }
 </style></head><body>
