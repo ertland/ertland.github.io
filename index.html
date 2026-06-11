@@ -548,6 +548,24 @@ html,body{overflow-x:hidden!important}
   .community .chapter-body.community-body{display:block!important}
   .community .qr-grid.social-grid{display:grid!important;grid-template-columns:1fr!important;max-width:300px!important;margin:24px auto 0!important}
 }
+
+/* mobile final polish: remove countdown label collision, narrower hero blocks, reliable community anchor */
+@media(max-width:640px){
+  .hero{padding-top:30px!important;padding-bottom:42px!important}
+  .hero-copy{width:100%!important;max-width:100%!important;min-width:0!important}
+  .hero h1{font-size:38px!important;line-height:1.02!important;letter-spacing:-.068em!important;margin-bottom:22px!important}
+  .countdown{width:calc(100vw - 28px)!important;max-width:calc(100vw - 28px)!important;margin-left:auto!important;margin-right:auto!important;padding:15px!important;border-radius:24px!important}
+  .countdown:before,.countdown:after{display:none!important}
+  .countdown-head{display:none!important}
+  .countdown p{margin-top:0!important;font-size:14.5px!important;line-height:1.38!important}
+  .countdown-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:9px!important}
+  .countdown-grid div{min-height:78px!important;border-radius:18px!important;padding:12px 8px!important}
+  .countdown-grid b{font-size:28px!important}
+  .countdown-grid span{font-size:10px!important}
+  .countdown small{font-size:10.5px!important;line-height:1.45!important;white-space:normal!important}
+  .hero-card{margin-top:14px!important}
+  .community{scroll-margin-top:88px!important}
+}
 </style></head><body>
 <header><div class="wrap nav"><a class="brand" href="#top"><span>ertland</span></a><nav class="navlinks"><a href="https://item.taobao.com/item.htm?app=chrome&amp;bxsign=scdTrbY0U7uUfp-b0mVUW7FoFXzwLJLvluZ0o4uYdUzL7RRc0eVMSJ3t_PG0dIAZq2Isq8syhRSHUFp4dJnfk0LyoC9IhA_ZWjMO0Po98L9pKMnB8xJimmS1KVgisGFb01x&amp;cpp=1&amp;detailSharePosition=interactBar&amp;iconType=commonIconType&amp;id=665298238948&amp;shareUniqueId=15935467025&amp;share_crt_v=1&amp;shareurl=true&amp;short_name=h.fI1srWF&amp;sourceType=item&amp;sp_abtk=common_1_commonInfo&amp;sp_tk=c2lPZTJRVjVidm8%3D&amp;spm=a2159r.13376460.0.0&amp;suid=A3078D92-7FF4-4C3C-BB85-4780C50B2816&amp;tbSocialPopKey=shareItem&amp;tk=siOe2QV5bvo&amp;un=7e0025f34170c5d7132b0f6991806569&amp;un_site=0&amp;ut_sk=1.YWxNJR5DWawDAGjeA81uP4OP_21380790_1651910501787.Copy.1&amp;sku_properties=-2%3A-63%3B-4%3A-68" target="_blank" rel="noopener noreferrer">淘宝店</a><a href="#新西兰打工度假简介">攻略</a><a href="#community">社群</a></nav><a class="cta nav-check-cta" href="#eligibility">开始资格自查</a></div></header>
 <main id="top"><section class="wrap hero"><div class="hero-copy"><span class="tag">nz working holiday visa · 2026 guide</span><h1>ertland 新西兰 WHV 申请攻略</h1><p class="lead">把 Notion 长文整理成一页清爽的申请指南：资格自查、抢名额、递签材料、确认信和社群入口，都能快速找到。</p><div class="countdown" data-deadline="2026-07-02T06:00:00+08:00"><div class="countdown-head"><span class="live-pill"><i></i> live countdown</span><em>NZWHV 2026</em></div><p>距离新西兰打工度假名额开抢还有</p><div class="countdown-grid"><div><b data-unit="days">--</b><span>days</span></div><div><b data-unit="hours">--</b><span>hours</span></div><div><b data-unit="minutes">--</b><span>mins</span></div><div><b data-unit="seconds">--</b><span>secs</span></div></div><small>2026年7月2日 10:00 新西兰时间 / 06:00 北京时间</small></div><div class="hero-actions"><a class="cta" href="#eligibility">开始资格自查</a><a class="ghost" href="#read">查看完整攻略</a></div></div><div class="hero-card" id="eligibility" aria-label="WHV key information"><div class="embedded-check">
@@ -950,7 +968,10 @@ html,body{overflow-x:hidden!important}
   });
 
   window.addEventListener('hashchange', () => openAndScrollToChapter(location.hash, false));
-  if(location.hash) openAndScrollToChapter(location.hash, false);
+  if(location.hash) {
+    openAndScrollToChapter(location.hash, false);
+    window.addEventListener('load', () => setTimeout(() => openAndScrollToChapter(location.hash, false), 250));
+  }
 })();
 </script>
 <script>
